@@ -4,15 +4,17 @@ This document shows the implementation status of `React Modal`.
 
 ## To-do List
 
-| Feature      | complete   |
-| :----------: | :--------: |
-| Default UI   |            |
-| hide()       | ✓          |
-| show()       | ✓          |
-| toggle()     | ✓          |
-| :----------: | :--------: |
-| enterAnim    |            |
-| leaveAnim    |            |
+| Feature         | complete |
+| :-------------: | :------: |
+| Default UI      |          |
+| hide()          | ✓        |
+| show()          | ✓        |
+| toggle()        | ✓        |
+| --------------- | -------- |
+| enterAnimation  |          |
+| leaveAnimation  |          |
+| Custom Style    |          |
+| History         |          |
 
 ### Notes
 
