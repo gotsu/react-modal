@@ -1,21 +1,44 @@
-# Implementation Status
 
-This document shows the implementation status of `React Modal`.
 
-## To-do List
+* [Implementation Status](implementation-status.md)
 
-| Feature         | complete |
-| :-------------: | :------: |
-| Default UI      |          |
-| hide()          | ✓        |
-| show()          | ✓        |
-| toggle()        | ✓        |
-| --------------- | -------- |
-| enterAnimation  |          |
-| leaveAnimation  |          |
-| Custom Style    |          |
-| History         |          |
+## Usage
+``` javascript
+import React from 'react';
+import Modal from 'Modal';
 
-### Notes
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      show: false
+    };
+  }
+  show() {
+    this.setState({
+      show: true
+    });
+  }
+  hide() {
+    this.setState({
+      show: false
+    });
+  }
+  toggle() {
+    this.setState({
+      show: !this.state.show
+    });
+  }
 
-* To-do List items will be add. 
+  render() {
+    return (
+      <div>
+        <button onClick={this.show.bind(this)}>Show Modal</button>
+        <Modal show={this.state.show} onHide={this.hide.bind(this)}>
+          <div> What you want </div>
+        </Modal>
+      </div>
+    )
+  }
+}
+```

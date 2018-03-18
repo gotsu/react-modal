@@ -8,17 +8,16 @@ class Modal extends Component {
   }
 
   render() {
-    const { isShow, hide } = this.props;
+    const { show, onToggle } = this.props;
     return (
-
-      isShow &&
-      (
-        <div className="overlay" onClick={hide}>
+      show&&
+        (
+        <div className="overlay" onClick={onToggle}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             Modal
           </div>
         </div>
-      )
+        )
     )
   }
 }
