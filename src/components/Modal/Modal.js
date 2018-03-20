@@ -8,11 +8,11 @@ class Modal extends Component {
   }
 
   render() {
-    const { show, onToggle } = this.props;
+    const { visible, hide } = this.props;
     return (
-      show&&
+      visible&&
         (
-        <div className="overlay" onClick={onToggle}>
+        <div className="overlay" onClick={hide}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             Modal
           </div>

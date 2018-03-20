@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
 
 import Modal from 'components/Modal';
+import ModalContainer from 'containers/ModalContainer'
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      show: false
+      visible: false
     }
     this.show = this.show.bind(this)
     this.hide = this.hide.bind(this)
-    this.toggle = this.toggle.bind(this)
   }
   show(){
     this.setState({
-      show: true
+      visible: true
     })
   }
   hide(){
     this.setState({
-      show: false
-    })
-  }
-  toggle(){
-    this.setState({
-      show: !this.state.show
+      visible: false
     })
   }
   render() {
-    const { show } = this.state
+    const { visible } = this.state
     return (
-      <div className="App" onClick={this.toggle}>
-        <button className="btn" onToggle={this.toggle}>Open Modal </button>
-        <Modal show={show} onToggle={this.toggle}/>
+      <div className="App">
+        <button className="btn" onClick={this.show}>Open Modal </button>
+        <Modal hide={this.hide} visible={visible}/>
+        <ModalContainer />
       </div>
     );
   }
