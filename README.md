@@ -14,22 +14,17 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      show: false
+      visible: false
     };
   }
   show() {
     this.setState({
-      show: true
+      visible: true
     });
   }
   hide() {
     this.setState({
-      show: false
-    });
-  }
-  toggle() {
-    this.setState({
-      show: !this.state.show
+      visible: false
     });
   }
 
@@ -37,9 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <button onClick={this.show.bind(this)}>Show Modal</button>
-        <Modal show={this.state.show} onHide={this.hide.bind(this)}>
-          <div> What you want </div>
-        </Modal>
+        <Modal hide={this.hide.bind(this)} visible={this.state.visible}/>
       </div>
     )
   }
@@ -54,23 +47,19 @@ import Modal from 'components/Modal';
 import { connect } from 'react-redux';
 import * as modalActions from 'store/modules/modal';
 
-class ModalContainer extends Component {
-
+class App extends Component {
   show = () => {
     this.props.modal_show();
   }
   hide = () => {
     this.props.modal_hide();
   }
-
   render() {
-    const { show, hide } = this;
-    const { visible } = this.props;
     return (
-      <Fragment>
-        <button onClick={show}>Redux Show</button>
-        <Modal hide={hide} visible={visible} />
-      </Fragment>
+      <div>
+        <button onClick={this.show}>Redux Show</button>
+        <Modal hide={this.hide} visible={this.props.visible} />
+      </div>
     )
   }
 }
@@ -84,5 +73,5 @@ const mapDispatchToProps = (dispatch) => ({
   modal_hide: () => dispatch(modalActions.modal_hide())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
