@@ -11,7 +11,7 @@ This document shows the implementation status of `React Modal`.
 | enterAnimation |       |       |
 | leaveAnimation |       |       |
 | Custom Style   |       |       |
-| History        |       |       |
+| History        | ✓     |       |
 
 ### Notes
 
