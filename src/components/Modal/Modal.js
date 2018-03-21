@@ -7,17 +7,12 @@ class Modal extends Component {
     super(props);
   }
 
-  hideCombine = () => {
-    this.props.normalHide();
-    this.props.reduxHide();
-  }
-
   render() {
-    const { visible, normalHide, reduxHide, reduxVisible } = this.props;
+    const { visible, hide } = this.props;
     return (
-      (visible || reduxVisible) &&
+      (visible) &&
         (
-        <div className="overlay" onClick={()=>{this.hideCombine()}}>
+        <div className="overlay" onClick={hide}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             Modal
           </div>
