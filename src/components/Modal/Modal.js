@@ -11,13 +11,13 @@ class Modal extends Component {
     const { visible, hide } = this.props;
     return (
       (visible) &&
-        (
+      (
         <div className="overlay" onClick={hide}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             Modal
           </div>
         </div>
-        )
+      )
     )
   }
 }

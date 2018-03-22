@@ -4,6 +4,34 @@
 
 ## Usage
 
+`Modal.js`
+
+``` javascript
+import React, { Component } from 'react';
+import './Modal.css';
+
+class Modal extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { visible, hide } = this.props;
+    return (
+      (visible) &&
+      (
+        <div className="overlay" onClick={hide}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            Modal
+          </div>
+        </div>
+      )
+    )
+  }
+}
+export default Modal;
+
+```
+
 ### 1. React
 
 ``` javascript
@@ -81,6 +109,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
 
 ### 3. History
+
+`App.js`
 
 ``` javascript
 import React from 'react';
