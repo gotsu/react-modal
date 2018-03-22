@@ -4,7 +4,7 @@
 
 ## Usage
 
-`Modal.js`
+> Modal.js
 
 ``` javascript
 import React, { Component } from 'react';
@@ -110,7 +110,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 ### 3. History
 
-`App.js`
+> `App.js`
 
 ``` javascript
 import React from 'react';
