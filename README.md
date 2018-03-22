@@ -4,7 +4,7 @@
 
 ## Usage
 
-> Modal.js
+    Modal.js
 
 ``` javascript
 import React, { Component } from 'react';
