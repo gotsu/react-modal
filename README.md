@@ -4,7 +4,7 @@
 
 ## Usage
 
-### Modal.js
+#### Modal.js
 
 ``` javascript
 import React, { Component } from 'react';
@@ -142,4 +142,76 @@ class App extends React.Component {
 }
 
 export default withRouter(App);
+```
+
+### 3. History
+
+#### App.js
+
+``` javascript
+import React from 'react';
+import RefModal from 'components/RefModal';
+import { withRouter } from 'react-router';
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+    const { location, history } = this.props;
+    return (
+      <div>
+        <Modal ref={instance => this.modal = instance } location={location} history={history} />
+        <button onClick={() => this.modal.show()} >Click</button>
+      </div>
+    )
+  }
+}
+
+export default withRouter(App);
+```
+
+#### Modal.js
+``` javascript
+import React, { Component } from 'react';
+import './Modal.css';
+class RefModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    }
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
+  }
+  show() {
+    const { location, history } = this.props;
+    history.push(location.pathname, { visible: true });
+  }
+  hide() {
+    const { history } = this.props;
+    history.goBack();
+  }
+  render() {
+    const { location } = this.props;
+    if(location.state === undefined){
+      location.state={
+        visible: false
+      }
+    }
+    return (
+      (location.state.visible) &&
+      (
+        <div ref="modal" className="overlay" onClick={this.hide}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            RefModal
+          </div>
+        </div>
+      )
+    )
+  }
+}
+export default RefModal;
+
 ```
