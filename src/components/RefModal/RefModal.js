@@ -12,7 +12,7 @@ class RefModal extends Component {
   }
 
   show() {
-    const { location, history } = this.props;
+    const { location, history, children } = this.props;
     history.push(location.pathname, { visible: true });
   }
   hide() {
@@ -21,7 +21,7 @@ class RefModal extends Component {
   }
 
   render() {
-    const { location } = this.props;
+    const { location, children } = this.props;
     if(location.state === undefined){
       location.state={
         visible: false
@@ -32,7 +32,7 @@ class RefModal extends Component {
       (
         <div ref="modal" className="overlay" onClick={this.hide}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            RefModal
+            {children}
           </div>
         </div>
       )

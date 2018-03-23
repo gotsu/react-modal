@@ -2,12 +2,9 @@ import React from 'react';
 import RefModal from 'components/RefModal';
 import { withRouter } from 'react-router';
 
-class Ref extends React.Component {
+class RefHistory extends React.Component {
   constructor(props){
     super(props);
-  }
-  componentDidMount(){
-    console.log(this.modal2);
   }
 
   render() {
@@ -18,14 +15,9 @@ class Ref extends React.Component {
           Modal1
         </RefModal>
         <button onClick={() => this.modal.show()} >Click</button>
-
-        <RefModal ref={j => this.modal2 = j } location={location} history={history} >
-          <br />Modal2
-        </RefModal>
-        <button onClick={() => this.modal2.show()} >Click</button>
       </div>
     )
   }
 }
 
-export default withRouter(Ref);
+export default withRouter(RefHistory);

@@ -6,6 +6,8 @@ import Normal from 'pages/Normal';
 import Redux from 'pages/Redux';
 import Test from 'pages/Test';
 import Ref from 'pages/Ref';
+import RefHistory from 'pages/RefHistory';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +17,7 @@ const App = () => {
         <Route exact path="/redux" component={Redux} />
         <Route exact path="/test" component={Test} />
         <Route exact path="/Ref" component={Ref} />
+        <Route exact path="/RefHistory" component={RefHistory} />
       </Switch>
     </BrowserRouter>
   )
