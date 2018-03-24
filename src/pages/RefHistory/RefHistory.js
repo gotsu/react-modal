@@ -15,6 +15,8 @@ class RefHistory extends React.Component {
           Modal1
         </RefModal>
         <button onClick={() => this.modal.show()} >Click</button>
+        <img src="https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_582,c_limit/phonepicutres-TA.jpg" />
+        <img src="http://www.thebigideatoolkit.com/wp-content/uploads/2011/07/Big-Picture.jpg" />
       </div>
     )
   }
